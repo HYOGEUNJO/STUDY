@@ -160,22 +160,129 @@ namespace _1216
             // int, string, bool, double, object 등 C#에서 기본으로 제공하는 데이터형식을 기본 형식(Primitive type)이라고 부른다.
             // int : 정수형 데이터 타입 (양수, 음수, 0)
             // float : 실수형 데이터 타입 (부동소수점 형태/ 3.14)
-            // bool : 논리값을 가지는 데이터 타입(참/거짓)
+            // bool : 논리값을 가지는 데이터 타입 (참/거짓)
+            bool boolType;
+            boolType = true;
+            boolType = false;
             // char : 한 문자를 가지는 데이터 탑입('A')
             // string : 문자열을 가지는 데이터 타입("Hello"
             // object : C#에서 모든 자료형의 부모형 데이터 타입(모든 데이터를 저장 가능)
+            // https://learn.microsoft.com/ko-kr/dotnet/csharp/language-reference/builtin-types/integral-numeric-types
 
+            // 상수
+            // 변수를 선언할 때 앞에 const 키워드를 붙이면 상수(Constant)가 된다. 한번 상수로 선언된 변수는 다시 값을 바꿀 수 없고,
+            // 반드시 선언과 동시에 초기화 해야한다. 이러한 const 키워드를 붙인 변수를 상수 또는 지역(Local) 상수라고 한다. 상수는 주로 대문자로 표현한다.
+            Console.Write("\n\n\n");
+            int number3 = 0;
+            Console.WriteLine(number3);
+            number3 = 1;
+            Console.WriteLine(number3);
 
+            const int CONST_FIVE = 5;
+            //CONST_FIVE = 10; // 에러 발생
 
+            // 리터럴
+            // 변수에 저장하기 위해 직접 대입하는 값 자체를 리터럴(Literal)이라고 한다.
+            // 정수형 리터럴 : 숫자 그대로 표현한다. ex) 1234
+            // 실수형 리터럴 : 대문자 F 또는 소문자 f를 접미사로 붙여 표현한다. ex) 3.14f
+            // 문자형 리터럴 : 작은 따옴표로 묶어서 표현한다. ex) 'A'
+            // 문자열 리터럴 : 큰 따옴표로 묶어서 표현한다. ex) "Hello"
+            const float PI = 3.14f;
 
+            // 숫자 구분자 사용
+            // C# 7.0 버전부터는 언더스코어(_) 문자를 사용하는 숫자 구분자(Digit separator)를 제공한다.
+            // 가독성을 높일 수 있다.
+            int bigNumber = 110_000;
+            Console.WriteLine(bigNumber);
+            Console.WriteLine("bigNumber - 1000 의 값은? {0}", bigNumber - 1000);
 
+            int nRadial = 5;
+            const float fPi = 3.14f;
+            float fAreaOfCircle = nRadial* nRadial * fPi;
+            Console.WriteLine(fAreaOfCircle);
 
+            // null 키워드
+            // C#에서 null 키워드는 '아무것도 없는 값'을 의미한다.
+            // null 가능 형식(Nullable)
+            // 숫자 형식의 변수를 선언할 때 int?, float? 와 같이 물음표(?) 기호를 붙이면 null 가능 형식으로 변경된다.
+            // 이러한 null 가능 형식에는 아무런 값도 없음을 의미하는 null을 대입할 수 있다.
+            int? nullNumber = null;
+            Console.WriteLine("Null을 눈으로 보고싶다 -> {0}", nullNumber);
 
+            string nullString = null;
+            string nullString2 = string.Empty;
 
+            // 자동 타입 추론(Automatic type deduction)
+            // 변수에 대입하는 값의 데이터 타입이 명시적이거나 명확할 때, 데이터 타입을 명시하지 않고 생략할 수 있다.
+            // 자동 타입 추론이란 컴파일러가 대입하는 값 또는 변수의 데이터 타입으로 다른 한 쪽의 데이터 타입을 추론하는 기능을 의미한다.
+            // C# 6.0 버전부터는 자동 타입 추론으로 기본 형식에 default 값을 대입할 수 있다.
+            // 기본 형식마다 정해진 default 값이 존재한다.
 
+            int number_ = default;
+            string string_ = default;
+            char char_ = default;
+
+            // var
+            var autoVariable = 10; // 자동추론으로 autoVariable는 int 형식으로 자동으로 바뀐다.
+            var autoVariable2 = 3.14f; // float
+            var autoVariable3 = 3.14; // double
+
+            // 열겨형(Enumeratoin) 형식 *
+            // C#에서 열겨형 형식은 기억하기 어려운 상수들을 기억하기 쉬운 이름 하나로 묶어 관리하는 표현 방식이다.
+            // 일반적으로 열거형으로 줄여 말한다. 열거형은 enum 키워드를 사용하고 "이늄" 또는 "이넘"으로 읽는다.
+            // 열거형은 클래스 범위 내에 정의해야 하며, 메서드 범위 안에는 정의할 수 없다.
+            Console.Write("\n\n\n");
+            Align align = Align.TOP;
+            align = Align.LEFT;
+            Console.WriteLine("열거형 데이터는 어떻게 보일까 -> {0}", align);
+
+            // 입출력에 대하여
+            // 프로그램을 실행할 때마다 서로 다른 값을 입력받으려면 콘솔에서 입력한 값을 변수에 저장할 수 있어야 한다.
+            // 키보드로 입력받고 모니터로 출력하는 일반적인 내용을 표준 입출력(Standard input/output)이라고 한다.
+
+            // System.Console.ReadLine() : 콘솔에서 한 줄을 입력받는다.
+            // System.Console.Read() : 콘솔에서 한 문자를 정수로 입력받는다.
+            // System.Console.ReadKey() : 콘솔에서 다음 문자나 사용자가 누른 기능 키를 가져온다.
+            Console.Write("\n\n\n");
+            Console.Write("이름을 입력하시오 : ");
+            string yourName = string.Empty;
+            yourName = Console.ReadLine();
+            Console.WriteLine("안녕하세요. {0}님.", yourName);
+
+            // 형식 변환
+            // Console.ReadLine() 메서드를 사용하여 콘솔에서 입력받은 데이터는 문자열이다. 문자열 대신 정수나 실수 데이터를 입력받고
+            // 싶다면 입력된 문자열을 원하는 데이터 형식으로 변환할 수 있어야 한다.
+            // 키워드 : 캐스팅 연산자, 암시적(묵시적) 형변환, 명시적 형변환
+            Console.Write("\n\n\n");
+            Console.Write("숫자를 입력하시오 : ");
+            string stringNum = Console.ReadLine();
+            int intNum = Convert.ToInt32(stringNum);
+            int intNum2 = int.Parse(stringNum);
+            int intNum3 = default;
+            int.TryParse(stringNum, out intNum3); // 가장 추천하는 방법
+
+            Console.WriteLine("입력한 숫자 + 10 은(는) {0}입니다.", intNum + 10);
+            Console.WriteLine("입력한 숫자 + 10 은(는) {0}입니다.", intNum2 + 10);
+            Console.WriteLine("입력한 숫자 + 10 은(는) {0}입니다.", intNum3 + 10);
+
+            Console.WriteLine("입력한 숫자 + 10 은(는) {0}입니다.", "100" + 10); // 문자열 더하기
+
+            // 실습. 실수형 변수로 반지름을 사용자에게 입력받고, 실수형 상수로 원주율을 선언한 다음에 구의 겉넓이, 구의 부피를 출력하는 프로그램을 작성하자.
+            Console.Write("\n\n\n");
+            const float userPI = 3.14f;
+
+            Console.WriteLine("구의 반지름을 입력하시면 구의 겉넓이와 부피를 계산해드리겠습니다.");
+            Console.Write("반지름을 입력해주세요 : ");
+            string userRadius = Console.ReadLine();
+            float floatNum = default;
+            float.TryParse(userRadius, out floatNum);
+            Console.WriteLine("입력한 반지름 : {0}", floatNum);
+            Console.WriteLine("구의 겉넓이 : {0} \n구의 부피 : {1}", (4.0f * userPI * floatNum * floatNum), ((userPI * floatNum * floatNum * floatNum)*4.0f)/3.0f);
 
 
         } // Main()
+        enum Align{TOP, BOTTOM, LEFT, RIGHT}; // *열거형
+
     } // class Program
 } // namespace _1216
 
