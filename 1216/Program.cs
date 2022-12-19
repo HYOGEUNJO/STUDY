@@ -265,7 +265,7 @@ namespace _1216
             Console.WriteLine("입력한 숫자 + 10 은(는) {0}입니다.", intNum2 + 10);
             Console.WriteLine("입력한 숫자 + 10 은(는) {0}입니다.", intNum3 + 10);
 
-            Console.WriteLine("입력한 숫자 + 10 은(는) {0}입니다.", "100" + 10); // 문자열 더하기
+            Console.WriteLine("문자열'100' + 10 은(는) {0}입니다.", "100" + 10); // 문자열 더하기
 
             // 실습. 실수형 변수로 반지름을 사용자에게 입력받고, 실수형 상수로 원주율을 선언한 다음에 구의 겉넓이, 구의 부피를 출력하는 프로그램을 작성하자.
             Console.Write("\n\n\n");
@@ -278,6 +278,16 @@ namespace _1216
             float.TryParse(userRadius, out floatNum);
             Console.WriteLine("입력한 반지름 : {0}", floatNum);
             Console.WriteLine("구의 겉넓이 : {0} \n구의 부피 : {1}", (4.0f * userPI * floatNum * floatNum), ((userPI * floatNum * floatNum * floatNum)*4.0f)/3.0f);
+
+
+            Console.Write("\n\n\n");
+            string aa1 = Convert.ToString(12, 2); // 12를 2진법으로 표시
+            Console.WriteLine(aa1);
+            int aa2 = Convert.ToInt32("0111", 2); // 0111을 10진수로 표시
+            Console.WriteLine(aa2);
+
+
+
 
 
         } // Main()
